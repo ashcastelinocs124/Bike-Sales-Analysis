@@ -1,72 +1,63 @@
 Bike Sales Analysis
+A Jupyter Notebook project analyzing a bike company's sales data to identify high-revenue customers, high-value countries, profitable bike models, and seasonal sales patterns. The analysis uses Python (pandas, matplotlib, seaborn) to answer business questions and provide actionable recommendations.
 
-A data-driven exploration of sales trends for a fictional bicycle company, designed to uncover high-revenue customers, top-performing markets, and product growth opportunities.
+Repository contents
 
-Project Overview
+Bike Sales Analysis.ipynb — Jupyter Notebook containing the full analysis, visualizations and findings.
+(Dataset is not included in the repo) The notebook expects a CSV dataset (original path in the notebook: "C:\Users\osaze\OneDrive\Desktop\MySQL\Projects\Datasets\Sales Data for Bike Company.csv").
+Key questions answered
 
-This project analyzes bicycle sales data to:
-	Identify high-revenue customers and countries
-	Highlight profitable product lines
-	Reveal seasonal sales trends and key business opportunities
-	Analysis is performed in a Jupyter Notebook using Python (Pandas, Matplotlib/Seaborn, etc.).
+Who are the top customers (by age, age group)?
+Which countries have the highest revenue per order?
+Which bike models generate the most profit?
+When during the year do sales spike?
+Summary of main findings
 
-File Structuretext
+United States generates the most total revenue.
+Australia and Germany have the highest revenue per order (strong purchasing power).
+Adults aged 35–64 generate the highest total revenue by age group.
+28-year-olds are the top single-age revenue contributors, although 31-year-olds have the highest order counts — suggesting higher average order value for 28-year-olds.
+Road Bikes are the most profitable bike sub-category.
+Sales peak in December (holiday season).
+Requirements
 
-Bike-Sales-Analysis/
-├─ data/
-│   └─ Sales Data for Bike Company.csv  # (Not included in this repository)
-├─ Bike Sales Analysis.ipynb
-├─ requirements.txt
-└─ README.md
+Python 3.8+
+Jupyter Notebook
+pandas
+numpy
+matplotlib
+seaborn
+Install dependencies (example)
 
-Bike Sales Analysis.ipynb — Main analysis notebook with data cleaning, EDA, and visualizations.
+Using pip: pip install pandas numpy matplotlib seaborn jupyter
+How to run
 
-data/ — Directory for your dataset. (Must add file yourself.)
+Clone the repository: git clone https://github.com/moyez48/Bike-Sales-Analysis.git
+Place the dataset CSV file in a local path and update the file path in the notebook cell that reads the CSV: df = pd.read_csv(r"/Sales Data for Bike Company.csv")
+Launch Jupyter and open the notebook: jupyter notebook
+Open Bike Sales Analysis.ipynb and run the cells (or run them sequentially).
+Notebook structure (high level)
 
-requirements.txt — Python dependencies.
+Data import and type conversions (Date to datetime).
+Exploratory analysis:
+Revenue by age group and specific age.
+Order counts by age group and age.
+Revenue per order by country (used due to lack of unique customer IDs).
+Top bike models by profit (filtering Product_Category == 'Bikes').
+Monthly revenue trends to identify seasonal spikes.
+Visualizations using seaborn and matplotlib with in-notebook plots and printed summaries.
+Notes & recommendations
 
-Getting Started
+The notebook calculates "revenue per order" because the dataset lacks unique customer identifiers. If a unique customer ID becomes available, consider computing revenue per customer for more accurate lifetime value or per-customer comparisons.
+Consider adding:
+Data validation and missing-value handling.
+Automated environment setup via a requirements.txt or environment.yml.
+A small sample dataset or synthetic data for reproducible demos.
+Exporting summary tables or interactive visualizations (Plotly) for stakeholders.
+Contact / Author
 
-Add the dataset: Place the sales data at data/Sales Data for Bike Company.csv. (Or, update the path in the notebook if you use a different location.)
-
-Set up the Python environment (Windows PowerShell):
-
-powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-Open and run the notebook:
-
-powershell
-
-jupyter notebook "Bike Sales Analysis.ipynb"
-Run all cells, top-to-bottom.
-
-If you’re on Mac/Linux, activate the virtual environment using . .venv/bin/activate instead of the PowerShell command.
-
-Key Findings
-
-The US leads in total revenue, while Australia and Germany deliver top revenue per order.
-28-year-olds generate the highest total revenue by age; 31-year-olds are the largest group by order count.
-Road Bikes bring in highest profits across categories.
-December is the single peak sales month.
-See the notebook for detailed charts and business takeaways.
-
-Data Limitations
-
-No unique Customer_ID: All "per customer" metrics are actually "per order" (i.e., per row in the dataset). This is clearly documented in both the notebook and README.
-
-Metrics may change if unique IDs are added; adjust using .nunique() where relevant.
-
-Reproducibility & Portability
-
-Paths: Always use the data/ folder (relative path) to store the CSV, never hard-coded computer-specific paths.
-Share clean notebooks: Remove large outputs before committing, or use nbstripout to keep version control lightweight.
-
-License
-
-This project is currently not licensed for redistribution or re-use. If you wish to open-source it, consider adding an MIT License or similar.
-
+Original notebook: Bike Sales Analysis.ipynb
+Notebook permalink: https://github.com/moyez48/Bike-Sales-Analysis/blob/32865c5ed06246834536dc6c0268dd5295424dc5/Bike%20Sales%20Analysis.ipynb
 Contact
 
 [Majesty Umoye on LinkedIn](https://www.linkedin.com/in/majestyumoye)
